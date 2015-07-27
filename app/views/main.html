@@ -1,0 +1,18 @@
+<div data-product-details ng-controller="ProductCtrl as product" ng-show="main.model.selectedProduct.name"></div>
+
+<div class="row">
+  <div class="col-sm-8">
+    <ul class="products__list" ng-controller="ProductListCtrl as list">
+      <li ng-repeat="item in main.model.products" ng-class="{ 'unavailable' : item.stock == 0}">
+        <div data-product-list-item></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-sm-4 sidebar">
+    <div class="cart sidebar__cart" ng-controller="CartCtrl as cart">
+      <div data-cart></div>
+    </div>
+  </div>
+
+</div>

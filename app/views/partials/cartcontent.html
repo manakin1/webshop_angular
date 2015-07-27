@@ -1,0 +1,13 @@
+<h3>Cart</h3>
+
+<ul>
+	<li ng-repeat="item in cart.model.products" ng-show="item.inCart">
+		<p>{{ item.name | capitalizeFirst }}: {{ item.inCart }}</p>
+		<p>${{ item.price | number: 1 }}</p>
+		<button ng-click="cart.addItem(item)">+</button>
+		<button ng-click="cart.subtractItem(item)">-</button>
+		<button ng-click="cart.removeItem(item)">Remove</button>
+	</li>
+</ul>
+
+<p>Total: ${{ cart.model.total }}</p>

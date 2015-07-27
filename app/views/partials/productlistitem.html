@@ -1,0 +1,8 @@
+<img ng-src="{{ item.thumb }}" />
+
+<p class="item__name">{{ item.name | capitalizeFirst }}</p>
+<p class="item__price">${{ item.price | number: 2 }}</p>
+<p class="item__stock">In stock: {{ item.stock }}</p>
+
+<button ng-click="list.showProductDetails(item)">Details</button>
+<button class="item__add-btn" ng-click="list.addToCartHandler(item)">Add to cart</button>

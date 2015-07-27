@@ -1,0 +1,7 @@
+<h3>Product details</h3>
+<p>{{ product.model.selectedProduct.name | capitalizeFirst }}</p>
+<p>{{ product.model.selectedProduct.description | capitalizeFirst }}</p>
+<p>${{ product.model.selectedProduct.price | number: 1 }}</p>
+
+<button ng-click="product.addToCart( product.model.selectedProduct )">Add to cart</button>
+<button ng-click="product.close()">Close</button>
