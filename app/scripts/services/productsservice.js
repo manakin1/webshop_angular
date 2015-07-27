@@ -76,7 +76,7 @@ angular.module( 'webshopAngularApp' )
 
   	self.unselectProduct = function( ) {
   		self.selectedProduct = {} ;
-  	}
+  	} ;
 
 
   	self.selectProduct = function( item ) {
@@ -93,7 +93,7 @@ angular.module( 'webshopAngularApp' )
   				self.selectedProduct = item ;
   			}
   		}
-  	}
-
+  	} ;
+ 
     
   } ] ) ;
