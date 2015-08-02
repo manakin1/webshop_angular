@@ -1,21 +1,36 @@
-<div data-product-details ng-controller="ProductCtrl as product" ng-show="main.model.selectedProduct.name"></div>
 
-<div class="row">
-  <div class="col-sm-8">
-    <label for="filter_input">Search: </label>
-    <input name="filter_input" type="text" ng-model="search.name" />
 
-    <ul class="products__list" ng-controller="ProductListCtrl as list">
-      <li ng-repeat="item in main.model.products | filter: search" ng-class="{ 'unavailable' : item.stock == 0}">
+<div class="row main-content">
+  <div class="col-sm-8 primary">
+
+    <div class="options">
+      <label for="filter_input">Search: </label>
+      <input name="filter_input" type="text" ng-model="search.name" />
+
+      <div class="layout-switch">
+        <a class="icon--layout icon--layout--list left" ng-class="{ 'active' : main.layout === 'list' }" ng-click="main.changeLayout('list')"></a>
+        <a class="icon--layout icon--layout--grid left" ng-class="{ 'active' : main.layout === 'grid' }" ng-click="main.changeLayout('grid')"></a>
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+
+    <ul class="products__list" ng-class="main.layout" ng-controller="ProductListCtrl as list">
+      <li ng-repeat="item in main.model.products | filter: search" ng-class="{'unavailable' : item.stock == 0}">
         <div data-product-list-item></div>
       </li>
+      <div class="clearfix"></div>
     </ul>
   </div>
 
-  <div class="col-sm-4 sidebar">
+  <div class="col-sm-4 secondary">
     <div class="cart sidebar__cart" ng-controller="CartCtrl as cart">
       <div data-cart></div>
     </div>
   </div>
 
+</div>
+
+<div class="overlay" ng-class="{ 'active' : main.model.selectedProduct.name }">
+  <div class="product-details" data-product-details ng-controller="ProductCtrl as product"></div>
 </div>

@@ -1,8 +1,16 @@
-<img ng-src="{{ item.thumb }}" />
+<div class="product">
+	<img ng-src="{{ item.thumb }}" alt="{{ item.name }}" />
 
-<p class="item__name">{{ item.name | capitalizeFirst }}</p>
-<p class="item__price">${{ item.price | number: 2 }}</p>
-<p class="item__stock">In stock: {{ item.stock }}</p>
+	<div class="product__info">
+		<h4 class="product__info--name">{{ item.name | capitalizeFirst }}</h4>
+		<p class="product__info--price">${{ item.price | number: 2 }}</p>
+		<p class="product__info--stock">In stock: <strong>{{ item.stock }}</strong></p>
+	</div>
 
-<button ng-click="list.showProductDetails(item)">Details</button>
-<button class="item__add-btn" ng-click="list.addToCartHandler(item)">Add to cart</button>
+	<div class="clearfix"></div>
+
+	<div class="product__cta">
+		<button ng-click="list.showProductDetails(item)">Details</button>
+		<button class="item__add-btn" ng-click="list.addToCartHandler(item)" ng-class="{ 'disabled' : item.stock == 0 }">Add to cart</button>
+	</div>
+</div>

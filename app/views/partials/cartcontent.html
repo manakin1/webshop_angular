@@ -1,13 +1,27 @@
-<h3>Cart</h3>
+<div class="col-sm-12">
+	<h3>Cart</h3>
+	<p ng-show="!cart.model.total">Your cart is empty.</p>
+</div>
 
 <ul>
 	<li ng-repeat="item in cart.model.products" ng-show="item.inCart">
-		<p>{{ item.name | capitalizeFirst }}: {{ item.inCart }}</p>
-		<p>${{ item.price | number: 1 }}</p>
-		<button ng-click="cart.addItem(item)">+</button>
-		<button ng-click="cart.subtractItem(item)">-</button>
-		<button ng-click="cart.removeItem(item)">Remove</button>
+		<div class="col-sm-8">
+			<p><strong>{{ item.inCart }}x</strong> {{ item.name | capitalizeFirst }}</p>
+		</div>
+		<div class="col-sm-4">
+			<p class="align-right cart__price">${{ item.price | number: 1 }}</p>
+		</div>
+		<div class="col-sm-12">
+			<button ng-click="cart.addItem(item)" ng-class="{ 'disabled' : item.inCart === item.inCart + item.stock }">+</button>
+			<button ng-click="cart.subtractItem(item)">-</button>
+			<button ng-click="cart.removeItem(item)">Remove</button>
+		</div>
+		<div class="clearfix"></div>
 	</li>
 </ul>
 
-<p>Total: ${{ cart.model.total }}</p>
+<div class="col-sm-12 align-right cart__total">
+	<p>Total: ${{ cart.model.total | number: 2 }}</p>
+</div>
+
+<div class="clearfix"></div>
