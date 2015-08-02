@@ -18,17 +18,20 @@ angular
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        controllerAs: 'main',
+        activeTab: 'home'
       })
       .when('/product/:productid', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        controllerAs: 'main',
+        activeTab: 'home'
       })
       .when('/cart', {
         templateUrl: 'views/cart.html',
         controller: 'CartCtrl',
-        controllerAs: 'cart'
+        controllerAs: 'cart',
+        activeTab: 'cart'
       })
       .otherwise({
         redirectTo: '/'

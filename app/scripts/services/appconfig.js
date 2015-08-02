@@ -13,13 +13,7 @@ angular.module( 'webshopAngularApp' )
     DEBUG: true,
 
     PRODUCTS_API_URL: 'data/products.json',
-    DISPLAY_OPTIONS: [ 'list', 'grid' ],
-
-    // events
-
-    events: {
-  
-    },
+    LAYOUT_OPTIONS: [ 'list', 'grid' ],
 
     // error messages
 

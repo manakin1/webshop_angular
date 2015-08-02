@@ -12,17 +12,23 @@ angular.module( 'webshopAngularApp' )
   	function( ProductsService, AppConfig, Utils, $scope, $location ) {
     
     var self = this ;
-
-  	self.errorMessage = '' ;
-  	self.display = 'list' ;
   	self.model = ProductsService ;
 
 
+  	/**
+     * Called when the user has taken action to add an item to the cart
+     * @param {object} item - The item to be added
+     */
   	self.addToCartHandler = function( item ) {
   		Utils.log( 'ProductListCtrl.addToCart: id: ' + item.id ) ;
   		self.model.addItem( item ) ;
   	} ;
 
+
+  	/**
+     * Called when the user has taken action to display the product details
+     * @param {object} item - The item to be displayed
+     */
   	self.showProductDetails = function( item ) {
   		if( self.model.selectProduct( item ) ) {
   			Utils.log( 'ProductListCtrl.showProductDetails: ' + item.id ) ;

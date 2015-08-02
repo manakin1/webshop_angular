@@ -14,15 +14,22 @@ angular.module( 'webshopAngularApp' )
   	self.model = ProductsService ;
 
 
+    /**
+     * Close the product details window
+     */
   	self.close = function( ) {
   		self.model.unselectProduct( ) ;
   		$location.path( '/' ) ;
-  	}
+  	} ;
 
 
+    /**
+     * Adds an item to the cart
+     * @param {object} item - The item to be added
+     */
   	self.addToCart = function( item ) {
   		self.model.addItem( item ) ;
-  	}
+  	} ;
 
 
   } ] ) ;
